@@ -1,26 +1,23 @@
-import React, {useState} from 'react';
-import {Image, StyleSheet, Text, useWindowDimensions, View} from 'react-native';
-import Logo from '../../../assets/images/loginScreenImg.png';
-import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput';
 
-const SignInScreen = () => {
+import React, { useState } from 'react';
+import { Image, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import Logo from '../../assets/images/1.png';
+import CustomButton from '../components/CustomButton';
+import CustomInput from '../components/CustomInput';
+
+const SignInScreen = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const {height} = useWindowDimensions();
+ 
 
   const onSignInPress = () => {
-    console.log('pressed');
+    navigation.navigate("Home");
   };
-  const onForgotPasswordPress = () => {
-    console.log('pressed');
-  };
-  const onSignInGooglePress = () => {
-    console.log('pressed');
-  };
+
   const onSignUpPress = () => {
-    console.log('pressed');
+    navigation.navigate("SignUp");
   };
 
   return (
@@ -45,17 +42,6 @@ const SignInScreen = () => {
       <CustomButton text="Sign In" onPress={onSignInPress} />
       <CustomButton
         type="TRANSPARENT"
-        text="Forgot Password?"
-        onPress={onForgotPasswordPress}
-      />
-      <CustomButton
-        bgColor="#FAE9EA"
-        fgColor="#DD4D44"
-        text="Sign In With Google"
-        onPress={onSignInGooglePress}
-      />
-      <CustomButton
-        type="TRANSPARENT"
         text="Don't have an account? Create one"
         onPress={onSignUpPress}
       />
@@ -65,18 +51,20 @@ const SignInScreen = () => {
 
 const styles = StyleSheet.create({
   root: {
+    flex:1,
     alignItems: 'center',
     padding: 20,
+    justifyContent:"center"
   },
-  heading:{
-    fontSize:18,
-    fontWeight:"bold"
+  heading: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   logo: {
     width: '50%',
-    maxWidth: 300,
-    maxHeight: 200,
-    marginBottom:"10%"
+    maxWidth: 250,
+    maxHeight: 150,
+    marginBottom: '10%',
   },
 });
 
