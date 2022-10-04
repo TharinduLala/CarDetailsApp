@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react';
-import { Image, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import React, {useState} from 'react';
+import {Image, StyleSheet, Text, useWindowDimensions, View} from 'react-native';
 import Logo from '../../assets/images/1.png';
 import CustomButton from '../components/CustomButton';
 import CustomInput from '../components/CustomInput';
@@ -10,14 +9,17 @@ const SignInScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const {height} = useWindowDimensions();
- 
 
   const onSignInPress = () => {
-    navigation.navigate("Home");
+    navigation.navigate('Home');
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Home'}],
+    });
   };
 
   const onSignUpPress = () => {
-    navigation.navigate("SignUp");
+    navigation.navigate('SignUp');
   };
 
   return (
@@ -51,10 +53,10 @@ const SignInScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   root: {
-    flex:1,
+    flex: 1,
     alignItems: 'center',
     padding: 20,
-    justifyContent:"center"
+    justifyContent: 'center',
   },
   heading: {
     fontSize: 20,

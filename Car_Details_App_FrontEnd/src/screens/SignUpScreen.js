@@ -13,7 +13,7 @@ const SignUpScreen = ({navigation}) => {
     console.log('pressed');
   };
   const onSignInPress = () => {
-    navigation.navigate("SignIn");
+    navigation.navigate('SignIn');
   };
 
   return (
