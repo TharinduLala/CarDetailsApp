@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-const VehicleItem = ({onPress}) => {
+const VehicleItem = ({onPress,id}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.item}>
-      <Text style={styles.title}>Title</Text>
+      <Text style={styles.title}>{id}</Text>
       <Text style={styles.body}>Body</Text>
       <Text style={styles.userId}>Id</Text>
     </TouchableOpacity>
@@ -12,10 +12,16 @@ const VehicleItem = ({onPress}) => {
 };
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#2c3e50',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    // backgroundColor: '#8e44ad',
+    padding: 10,
+    // marginVertical: 10,
+    marginTop:20,
+    marginHorizontal: 20,
+    borderRadius:15,
+    borderColor:"#8e44ad",
+    borderWidth:1,
+    borderRightWidth:4,
+    borderBottomWidth:4
   },
   title: {
     fontSize: 15,
