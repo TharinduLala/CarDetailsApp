@@ -1,46 +1,45 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const VehicleItem = ({onPress,id}) => {
+
+
+const VehicleItem = ({onPress,vehicle}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.item}>
-      <Text style={styles.title}>{id}</Text>
-      <Text style={styles.body}>Body</Text>
-      <Text style={styles.userId}>Id</Text>
+      <Text icon style={styles.title}><Icon name="car" size={20}/>{"\t"}{`${vehicle.brand}\t${vehicle.model}`}</Text>
+      <Text style={styles.body}><Icon name="map-marker" size={20}/>{"\t"}{vehicle.location}</Text>
+      <Text style={styles.body}><Icon name="currency-usd" size={20}/>{"\t"}{`${vehicle.price}\t(LKR)`}</Text>
+      <Text style={styles.date}><Icon name="calendar-range" size={15}/>{vehicle.date}</Text>
     </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
   item: {
-    // backgroundColor: '#8e44ad',
-    padding: 10,
-    // marginVertical: 10,
-    marginTop:20,
+    backgroundColor: '#9b59b6',
+    padding: 8,
+    marginVertical: 10,
     marginHorizontal: 20,
     borderRadius:15,
-    borderColor:"#8e44ad",
-    borderWidth:1,
-    borderRightWidth:4,
-    borderBottomWidth:4
   },
   title: {
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingBottom: '3%',
     color: 'white',
+    padding:4
   },
   body: {
-    fontSize: 12,
-    textAlign: 'justify',
-    paddingTop: '3%',
-    color: 'white',
-  },
-  userId: {
-    fontStyle: 'italic',
     fontSize: 14,
+    textAlign: 'justify',
+    color: 'white',
+    padding:4
+  },
+  date: {
+    fontStyle: 'italic',
+    fontSize: 12,
     textAlign: 'right',
-    color: '#ecf0f1',
+    color: 'white',
   },
 });
 

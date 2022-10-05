@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {FAB} from 'react-native-paper';
 import VehicleItem from '../components/VehicleItem';
+import {Appbar} from 'react-native-paper';
 
 const DATA = [
   {
@@ -62,7 +63,7 @@ const DATA = [
     sellerName: 'Kamal',
     sellerContact: '07155555',
     date: '2022/10/05',
-  }
+  },
 ];
 
 const HomeScreen = ({navigation}) => {
@@ -88,12 +89,17 @@ const HomeScreen = ({navigation}) => {
   });
   return (
     <SafeAreaView style={styles.container}>
+      <Appbar.Header>
+        <Appbar.Content title="Home" />
+        <Appbar.Action icon="magnify" onPress={() => {}} />
+        <Appbar.Action icon="dots-vertical" onPress={() => {}} />
+      </Appbar.Header>
       <FlatList
         data={DATA}
         renderItem={({item}) => (
           <VehicleItem
-            id={item.vehicleNo}
-            onPress={() => navigation.navigate('ViewVehicle',{object:item})}
+            vehicle={item}
+            onPress={() => navigation.navigate('ViewVehicle', {object: item})}
           />
         )}
         keyExtractor={item => item.vehicleNo}
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 0,
-    backgroundColor: '#3B71F3',
+    backgroundColor: '#2c3e50',
   },
 });
 
